@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(157, 234, 234);
+}
+
+
+.標籤塊{
+    box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding:20px;
+    margin: 10px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+}
+.標籤塊 img{
+    object-fit: cover;
+    height: 80px;
+}
+.標籤塊 p{
+    margin: 10px 0px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.標籤塊 div{
+    margin: 20px 0px 10px 0px;
+}
+
+.標籤塊 a{
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(144, 188, 241);
+}
+
+.標籤塊:nth-child(1) a{
+    background: linear-gradient(135deg, #ff3232 0%,#ed780b 24%,#edd417 50%,#6ee576 74%,#7db9e8 100%);
+}
+.標籤塊:nth-child(2) a{
+    background: #c80f0f;
+}
+.標籤塊:nth-child(3) a{
+    background: #4BA181;
+}
+
+.標籤塊 a:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(121, 121, 121);
+}

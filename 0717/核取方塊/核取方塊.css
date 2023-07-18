@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+.黑夜{
+    background-color: rgb(59, 59, 59);
+}
+.核取方塊{
+    display: none;
+}
+
+.核取方塊+label[for=方塊1]{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    transition: 0.8s;
+    border-radius: 50px;
+    box-shadow: 1px 1px 1px 1px rgb(133, 137, 137);
+
+    background-color: rgb(133, 137, 137);
+}
+.核取方塊+label[for=方塊1]::before{
+    position: absolute;
+    content: '';
+    transition: 0.8s;
+    box-shadow: 1px 1px 1px 1px rgb(133, 137, 137);
+    background-color: rgb(255, 255, 255);
+    width: 50px;
+    height: 50px;
+    left: 5px;
+    border-radius: 50px;
+}
+
+.核取方塊:checked+label[for=方塊1]{
+    background-color: rgb(132, 226, 250);
+}
+
+.核取方塊:checked+label[for=方塊1]::before{
+    position: absolute;
+    content: '';
+    background-color: rgb(255, 255, 255);
+    width: 50px;
+    height: 50px;
+    left: 55px;
+    border-radius: 50px;
+}

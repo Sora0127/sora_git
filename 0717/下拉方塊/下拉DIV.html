@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉DIV</title>
+    <link rel="stylesheet" href="./下拉方塊.css">
+</head>
+<body>
+    <div class="外框">
+        <div class="外訊息">
+            <div>
+                訂單編號
+                <span>UP2700159</span>
+            </div>
+            <div>
+                訂購人
+                <span>shino2279</span>
+            </div>
+            <div>
+                訂購時間
+                <span>2023/07/17 02:21:03</span>
+            </div>
+        </div>
+        <div class="資訊欄">
+            <table>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+            </table>
+        </div>
+        <div class="下拉鈕">
+            <span></span>
+        </div>
+    </div>
+    <div class="外框 已出貨">
+        <div class="外訊息">
+            <div>
+                訂單編號
+                <span>KJ2589017</span>
+            </div>
+            <div>
+                訂購人
+                <span>sora0127</span>
+            </div>
+            <div>
+                訂購時間
+                <span>2023/07/17 08:30:52</span>
+            </div>
+        </div>
+        <div class="資訊欄">
+            
+        </div>
+        <div class="下拉鈕">
+            <span></span>
+        </div>
+    </div>
+    <script>
+        let 外框 = document.querySelectorAll(".外框");
+        let 資訊欄 = document.querySelectorAll(".資訊欄");
+        let 按鈕 = document.querySelectorAll(".下拉鈕");
+        
+            按鈕.forEach(function(各個按鈕,索引){
+                各個按鈕.onclick=function(){
+                    外框[索引].classList.toggle("下拉");
+                    外框[索引].style.height = 資訊欄[索引].style.height;
+                }
+            });
+            
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: rgb(157, 234, 234);
+}
+
+
+.標籤塊{
+    box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding:20px;
+    margin: 10px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+}
+.標籤塊 img{
+    object-fit: cover;
+    max-height: 80px;
+}
+.標籤塊 p{
+    margin: 10px 0px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.標籤塊 div{
+    margin: 20px 0px 10px 0px;
+}
+
+.標籤塊 a{
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(144, 188, 241);
+}
+
+.標籤塊:nth-child(1) a{
+    background: linear-gradient(135deg, #ff3232 0%,#ed780b 24%,#edd417 50%,#6ee576 74%,#7db9e8 100%);
+}
+.標籤塊:nth-child(2) a{
+    background: #c80f0f;
+}
+.標籤塊:nth-child(3) a{
+    background: #4BA181;
+}
+
+.標籤塊 a:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(121, 121, 121);
+}
+
+.選單{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.選單>li{
+    padding: 20px;
+    font-weight: bold;
+    font-size: 15pt;
+    list-style: none;
+}
+.選單>li:nth-child(odd):hover{
+    color: azure;
+    background-color: rgb(161, 200, 200);
+}
+.選單>li:nth-child(even):hover{
+    color: azure;
+    background-color: rgb(221, 186, 136);
+}
+
+.頁頭{
+    display: flex;
+    position: fixed;
+    top:0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.2);
+    height:58px;
+    margin: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: rgb(255, 255, 255);
+}
+.nav列 ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 20px;
+}
+.nav列 ul>li{
+    font-weight: bold;
+    padding: 20px;
+}
+.nav列 ul>li:hover{
+    color: aliceblue;
+    background-color: #7db9e8;
+}
+.logo{
+    color: rgb(144, 188, 241); 
+    font-size: 30pt; 
+    position: relative; 
+    top: 5px;
+    left: 20px;
+    text-decoration: none;
+}
+
+.頁尾{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.2);
+    height:80px;
+    margin: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+#連結區{
+    transition: 0.8s;
+    display: flex; 
+    flex-direction: row;
+}
+#區塊{
+    display: flex;
+    flex-direction: row; 
+    max-width: 1000px;
+}
+
+#左側區{
+    display: flex;
+    flex-direction: column; 
+    width: 60%; 
+    margin: 2%;
+}
+.選單區{
+    width: 30%; 
+    height: 100%;
+    margin: 20px 0px 0px 10px;
+}
+.選單區{
+    margin-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+#nav按鈕{
+    display: none;
+    background-color: rgb(152, 232, 218);
+    width: 70px;
+    height: 100%;
+}
+#nav按鈕 img{
+    height: 70%;
+    padding: 10px;
+}
+#nav按鈕:hover{
+    background-color: rgb(160, 161, 162);
+}
+
+@media screen and (max-width:750px){
+    body{
+        padding-top: 80px;
+    }
+    #連結區{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* flex-direction: column; */
+    }
+    
+}
+@media screen and (max-width:586px){
+    #區塊{
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+
+    .選單{
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content:flex-start;
+    }
+    
+    #區塊 .標籤塊:nth-child(2){
+        width: 85%;
+    }
+    
+    
+    #左側區{
+        display: flex;
+        flex-direction: column; 
+        width: 80%; 
+        margin: 2%;
+    }
+    .選單區{
+        padding: 20px;
+    }
+
+    #nav按鈕{
+        display: block;
+    }
+    .nav列{
+        position: absolute;
+        background-color: azure;
+        width: 100%;
+        top: 60px;
+        height: 0;
+        transition: 0.8s;
+        overflow: hidden;
+        z-index: 1000;
+    }
+    .nav列 ul{
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .nav列.打開{
+        height: 230px;
+    }
+
+    .頁尾{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 1px 1px 0.5px 1px rgba(0, 0, 0, 0.2);
+        height:80px;
+        margin: 0;
+        margin-top: 20px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+}
