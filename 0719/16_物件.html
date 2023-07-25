@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <style>
+        body{
+            background-color: rgb(185, 216, 216);
+        }
+        .人{
+            background-color: rgb(255, 255, 255);
+            max-width:400px;
+
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        var person = {
+                name: ["Bob", "Smith"],
+                age: 32,
+                gender: "male",
+                interests: ["music", "skiing"],
+                bio: function () {
+                    alert(
+                        this.name[0] +
+                            " " +
+                            this.name[1] +
+                            " is " +
+                            this.age +
+                            " years old. He likes " +
+                            this.interests[0] +
+                            " and " +
+                            this.interests[1] +
+                            "."
+                    );
+                },
+                greeting: function () {
+                    alert("Hi! I'm " + this.name[0] + ".");
+                },
+            };
+
+        // 呼叫
+        document.write("<div class='人'>"); 
+            document.write("<div style='display:flex;'>");
+                document.write("<a style='border-right:2px solid rgb(128, 128, 128); padding:5px;'>名字:"+person["name"]+"</a>");
+                document.write("<a style='padding:5px;'>年齡:"+person.age+"</a>");
+            document.write("</div>");
+            document.write("<div style='display:flex; flex-direction: column;'>");
+                document.write("<a style='padding:5px;'>性別:"+person.gender+"</a>");
+                document.write("<a style='padding:5px;'>興趣:"+person.interests+"</a>");
+            document.write("</div>");
+        document.write("</div>");
+
+        person.name[0]
+        person.age
+        person.interests[1]
+        
+        // person.bio();
+        // person.greeting();
+
+        // 設定object
+        person["name"][0] = "Jimmy"
+        person.name[1] = "Buter"
+        person.age = 50
+        person.interests[1] = "basketball"
+
+        document.write("<div class='人'>"); 
+            document.write("<div style='display:flex;'>");
+                document.write("<a style='border-right:2px solid rgb(128, 128, 128); padding:5px;'>名字:"+person["name"]+"</a>");
+                document.write("<a style='padding:5px;'>年齡:"+person.age+"</a>");
+            document.write("</div>");
+            document.write("<div style='display:flex; flex-direction: column;'>");
+            document.write("<a style='padding:5px;'>性別:"+person.gender+"</a>");
+            document.write("<a style='padding:5px;'>興趣:"+person.interests+"</a>");
+            document.write("</div>");
+        document.write("</div>");
+
+        // this
+        var person1 = {
+            name: "Chris",
+            greeting: function () {
+                alert("Hi! I'm " + this.name + ".");
+            },
+        };
+
+        document.write("<div class='人'>"); 
+            document.write("<div style='display:flex;'>");
+                document.write("<a style='padding:5px;'>名字:"+person1["name"]+"</a>");
+            document.write("</div>");
+        document.write("</div>");
+        
+        // person1.greeting()
+        // person1.greeting()
+
+        var person2 = {
+            name: "Brian",
+            greeting: function () {
+                alert("Hi! I'm " + this.name + ".");
+            },
+        };
+        document.write("<div class='人'>"); 
+            document.write("<div style='display:flex;'>");
+                document.write("<a style='padding:5px;'>名字:"+person2["name"]+"</a>");
+            document.write("</div>");
+        document.write("</div>");
+
+        
+        // 練習把person.name還有person.interests的資料型態改為object
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

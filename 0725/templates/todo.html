@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:rgb(152, 174, 172);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        form{
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            display: flex;
+            flex-direction: row;
+        }
+        .項目{
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: bold;
+            margin: 10px;
+        }
+        .in-set{
+            border-radius: 20px;
+            margin: 2px 5px 2px 0px;
+            padding: 2px 2px 2px 10px;
+        }
+        .b-set,.刪除扭{
+            background-color:rgb(161, 182, 186);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+        .b-set:hover,.刪除扭:hover{
+            background-color:rgb(87, 87, 87);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="取得()">
+    <form action="http://localhost:5501/todo" method="POST">
+        <input class="in-set" name="新增資料" type="text">
+        <input id="新增按鈕" class="b-set" type="submit" value="新增">
+    </form>
+    <div id="清單列">
+
+    </div>
+
+    <script>
+        let d = document.getElementById("清單列");
+        let 新增按鈕 = document.getElementById("新增按鈕");
+        function 取得(){
+            fetch('http://localhost:5501/todo',{
+                methods:"GET",
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            }).then(response => response.json())
+            .then(rj=>{
+                rj.forEach(element => {
+                    let 項目=document.createElement("div");
+                    let f = document.createElement("form");
+                    let 文字=document.createElement("a");
+                    let 方格=document.createElement("input");
+                    let 隱藏=document.createElement("input");
+                    f.setAttribute("class","項目");
+                    f.setAttribute("method","POST");
+                    f.setAttribute("action","http://localhost:5501/del");
+                    
+                    隱藏.setAttribute("type","hidden");
+                    隱藏.setAttribute("value",element["編號"]);
+                    隱藏.setAttribute("name","刪除資料");
+                    
+                    文字.textContent = element["項目"];
+                    方格.setAttribute("type","submit");
+                    方格.setAttribute("value","刪除");
+                    方格.setAttribute("class","刪除扭");
+
+                    f.appendChild(文字);
+                    f.appendChild(方格);
+                    f.appendChild(隱藏);
+                    d.appendChild(f);
+                });
+            })
+        }
+    </script>
+</body>
+</html>

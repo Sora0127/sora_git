@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    人名:<input type="text" id="name">
+    時間差:<input type="text" id="delay">
+    <button id="set-alarm">打卡</button>
+    <div id="output"></div>
+</body>
+<script>
+    const 人名 = document.getElementById('name');
+    const 時間差 = document.getElementById('delay');
+    const button = document.getElementById('set-alarm');
+    const output = document.getElementById('output');
+
+    function alarm(人名, 時間差) {
+        return new Promise((resolve, reject) => {
+            if (時間差>-4 &&時間差 <=0) {
+                reject('很棒!!準時的傢伙');//傳入catch 
+            }else if(時間差 <=-4){
+                reject('好早!!你都沒睡R');//傳入catch 
+            }
+            window.setTimeout(() => {
+                resolve(`幹，${人名}，為什麼遲到${時間差}`);
+            }, delay);
+        });
+    }
+
+
+    button.addEventListener('click', () => {
+        alarm(人名.value,時間差.value)
+        .then(回傳訊息 => output.textContent = 回傳訊息)
+        .catch(回傳錯誤 => output.textContent = 回傳錯誤)
+    });
+
+</script>
+</html>

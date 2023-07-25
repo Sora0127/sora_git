@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09單行條件式</title>
+    <style>
+        html{
+            /* background-color: aliceblue; */
+            color: rgb(0, 0, 0);
+            transition: 0.8s;
+        }
+        select{
+            width: 100px;
+            border-radius: 10px;
+            padding: 2px 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>網站</h1>
+
+    <select class="下拉式選單">
+        <option value="" hidden></option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+    </select>
+</body>
+<script>
+    var select = document.querySelector(".下拉式選單");
+    var html = document.querySelector("html");
+
+    select.onchange = function () {
+        switch(select.value){
+            case 'A':
+                html.style.backgroundColor = 'rgb(241, 213, 175)';
+                html.style.color = "rgb(14, 42, 80)";
+                break;
+            case 'B':
+                html.style.backgroundColor = 'rgb(212, 245, 236)';
+                html.style.color = "rgb(43, 10, 19)";
+                break;
+            case 'C':
+                html.style.backgroundColor = 'rgb(253, 204, 238)';
+                html.style.color = "rgb(2, 51, 17)";
+                
+                break;
+            case 'D':
+                html.style.backgroundColor = 'rgb(204, 253, 206)';
+                html.style.color = "rgb(51, 2, 49)";
+                break;
+            case 'E':
+                html.style.backgroundColor = '#000';
+                html.style.color = "#FFF";
+                break;
+        }
+    };
+
+
+    // 練習用if else or switch 做更多顏色
+</script>
+</html>

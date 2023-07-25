@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            margin-top: 100px;
+            padding: 20px;
+            box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            background-color: rgb(242, 245, 248);
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        input[type=text]{
+            
+            padding-left: 10px;
+            border-radius: 20px;
+        }
+        #送出{
+            border-radius: 20px;
+            padding:5px 20px;
+            width: fit-content;
+            font-weight: bold;
+            background-color: rgb(175, 208, 208);
+        }
+        #送出:hover{
+            cursor: pointer;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            background-color: rgb(135, 139, 139);
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(195, 220, 220);
+        }
+    </style>
+</head>
+<body>
+    <form action="http://localhost:3000/BMI計算" method="post">
+        <div style="margin: 10px;">
+            <a>身高</a>
+            <input type="text" name="身高" required>
+        </div>
+        <div style="margin: 10px;">
+            <a>體重</a>
+            <input type="text" name="體重" required>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <input id="送出" type="submit" value="送出">
+        </div>
+    </form>
+</body>
+</html>

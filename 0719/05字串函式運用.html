@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字串的函式</title>
+    <script>
+        我的字串 = "這是我的字串，你好，好夥伴"
+
+
+        console.log("-----------字串長度-------------")
+        console.log("長度為"+我的字串.length)
+
+        console.log("----------取得字串中的特定字元---------")
+        console.log(我的字串[2]) 
+        console.log(我的字串[1])
+
+        console.log("---------尋找字串中的子字串位置--------")
+        console.log(我的字串.indexOf("你好")) 
+        console.log(我的字串.indexOf("夥伴"))
+        
+        console.log("------------切割子字串------------")
+        console.log(我的字串.slice(2,10))
+        開始位置=我的字串.indexOf("，")
+        最後位置=我的字串.length
+        console.log(我的字串.slice(開始位置,最後位置))
+
+        console.log("------------變更大小寫------------")
+        var radData = "wan an makabaka";
+        console.log(radData.toLowerCase());
+        console.log(radData.toUpperCase());
+
+        console.log("------------替換部分字串------------")
+        替換後=我的字串.replace("你好","晚安")
+        console.log(替換後)
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

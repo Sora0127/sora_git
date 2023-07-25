@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作DOM</title>
+    <style>
+        body{
+            background-color: rgb(191, 221, 221);
+        }
+        p{
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            width:fit-content ;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        button{
+            /* display: none; */
+            background-color: rgb(163, 205, 242);
+            font-weight: bold;
+            width: 200px; ;
+            font-size: 12pt;
+            padding: 5px 20px;
+            border-radius: 20px;
+            transition: 0.8s;
+        }
+        button:hover{
+            background-color: rgb(124, 124, 124);
+            
+            color: rgb(255, 255, 255);
+        }
+        button:active{
+            transition: 0.8s;
+            background-color: rgb(242, 248, 203);
+            color: rgb(83, 80, 80);
+        }
+        img{
+            height: 400px;
+        }
+        #圖標{
+            padding: 10px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <img />
+    <p style="display: flex; flex-direction: row; align-items: center;">
+        <img id="圖標" src="./Google.png"  alt="">
+        <a style="margin: 0px 20px;" href="https://www.youtube.com/">Youtube</a>
+        <button>Switch</button>
+    </p>
+</body>
+<script>
+    const link = document.querySelector("a");
+    const img = document.querySelector("img");
+    const 圖標 = document.querySelector("#圖標");
+    const button = document.querySelector("button");
+
+    var flag = true;
+
+    button.addEventListener("click", () => {
+        if(flag){
+            img.srcset = "hoshino1.png"
+            link.textContent = "Youtube";
+            圖標.src = "Youtube.png";
+            link.target = "blank";
+            link.href = "https://www.youtube.com/";
+            flag = false;
+        }else{
+            img.srcset = "hoshino2.png";
+            link.textContent = "Google";
+            圖標.src = "Google.png";
+            link.target = "blank";
+            link.href = "https://www.google.com"
+            flag = true;
+        }
+    })
+
+    // setInterval(function(){
+    //     button.click();
+    // },600)
+    
+    button.click();
+</script>
+</html>

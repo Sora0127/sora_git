@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:rgb(170, 206, 206);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #代辦清單>li{
+            position: relative;
+            left: -20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(255, 255, 255);
+            height: fit-content;
+            min-width: 200px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            list-style: none;
+        }
+
+        #代辦清單>li.完成{
+            text-decoration: line-through;
+            background-color: rgb(176, 234, 165);
+            transition: 0.8s;
+        }
+        form{
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .in-set{
+            border-radius: 15px;
+            padding: 2px 0px 2px 10px;
+        }
+        .b-set{
+            background-color: rgb(134, 165, 165);
+            padding: 5px 10px;
+            border-radius: 10px;
+            color: aliceblue;
+            font-weight: bold;
+        }
+        .b-set:hover{
+            cursor: pointer;
+            background-color: rgb(120, 125, 125);
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="傳出" >
+        <input class="in-set" type="text" name="內容">
+        <input class="b-set" type="submit" value="新增">
+    </form>
+
+    <ul class="框" id="代辦清單">
+
+    </ul>
+
+    <script>
+        fetch('http://localhost:3000/',{
+            headers:{'Content-Type':'applcation/json'}
+        }).then(response => response.json())
+        .then(清單元素 =>{
+            const 清單框 = document.getElementById('代辦清單')
+            清單元素.forEach(元素 => {
+                const li = document.createElement('li')
+                const check = document.createElement('input')
+                check.setAttribute('type','checkbox')
+                check.setAttribute('class','確認框')
+                
+                check.addEventListener('click',function(){
+                    this.parentNode.classList.toggle("完成");    
+                });
+                
+                li.textContent = 元素;
+                li.appendChild(check)
+
+                清單框.appendChild(li)
+                
+            });
+        })
+
+        document.getElementById("傳出").addEventListener('submit',event=>{
+            event.preventDefault();
+            const 新元素=document.getElementsByName("內容")[0];
+            
+
+            fetch('http://localhost:3000/',{
+                headers:{'Content-Type':'application/json'},
+                method:'POST',
+                body:JSON.stringify({內容:新元素.value})
+            }).then(response => response.text())
+            .then(訊息 =>{
+                const 清單框 = document.getElementById('代辦清單')
+                const li = document.createElement('li')      
+                li.textContent = 內容;
+                清單框.appendChild(li)
+            })
+        })
+    </script>
+
+    
+</body>
+</html>

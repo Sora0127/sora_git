@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create function</title>
+    <style>
+        body{
+            background-color: rgb(190, 229, 229);
+        }
+        .訊息框{
+            position: relative;
+            top: 100px;
+            left: 30%;
+            width: 50%;
+            padding: 10px;
+            height: 200px;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: aliceblue;
+            margin: 5px 0px;
+        }
+        .關閉{
+            position: absolute;
+            top:0;
+            z-index: 1;
+            right: 0;
+            height: 25px;
+            width: 40px;
+            border: none;
+            border-top-right-radius: 10px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(185, 32, 32);
+        }
+        .關閉:hover{
+            background-color: aliceblue;
+            color: black;
+            cursor: pointer;
+        }
+        .訊息框::after{
+            content: '123';
+            background-color: rgb(103, 129, 129);
+            position: absolute;
+            width: 90%;
+            height: 25px;
+            line-height: 25px;
+            border-top-left-radius: 10px;
+            top: 0;
+            left: 0;
+            padding-left: 20px;
+            color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <button>創建函式</button>
+</body>
+<script>
+    but = document.querySelector("button")
+    but.onclick = displayMessage
+
+    // but.onclick = displayMessage()
+    
+    // but.onclick = function () {
+    //     displayMessage()
+    // }
+    
+    function displayMessage() {
+        var html = document.querySelector("html");
+
+        var panel = document.createElement("div");
+        panel.setAttribute("class", "訊息框");
+        html.appendChild(panel);
+
+        var msg = document.createElement("p");
+        msg.textContent = "這是訊息框";
+        panel.appendChild(msg);
+
+        var closeBtn = document.createElement("button");
+        closeBtn.textContent = "x";
+        closeBtn.setAttribute("class", "關閉");
+        panel.appendChild(closeBtn);
+
+        closeBtn.onclick = function () {
+            panel.parentNode.removeChild(panel);
+        };
+    }
+    // displayMessage()
+</script>
+</html>

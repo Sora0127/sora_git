@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06陣列</title>
+    <script>
+        console.log("-----------宣告陣列---------------")
+        shopping = ["麵包", "牛奶", "起司", "火腿", "麵"];
+        sequence = [1, 1, 2, 3, 5, 8, 13];
+        混用 = ["tree", 795, [0, 1, 2],{age:20,name:"林靖翔"}];
+        console.log(混用)
+        console.log(混用[2][1])
+        console.log(混用[3].name)
+
+        console.log("-----------length 陣列長度-------------")
+        for(i=0;i<混用.length;i++){
+            console.log(混用[i])
+        }
+
+        console.log("-----------split 分割字串----------------")
+        myData = "霹靂卡,霹靂拉拉,波波莉娜,貝貝魯多";
+        array_of_data = myData.split(",")
+        console.log(array_of_data.toString())
+
+        console.log("-----------join array組成字串-------------")
+        new_data = array_of_data.join(" + ")
+        console.log(new_data)
+
+        console.log("----------推入與彈出資料----------")
+        console.log(array_of_data)
+
+        console.log(array_of_data+"→[從尾部彈出'"+array_of_data.pop()+"']")
+
+        array_of_data.push("1234")
+        console.log(array_of_data+"←[從尾部推入'"+1234+"']")
+
+        
+        console.log("[從頭部拿出'"+array_of_data.shift()+"']←"+array_of_data)
+        
+        array_of_data.unshift("5678")
+        console.log("[從頭部推入'"+5678+"']→"+array_of_data)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

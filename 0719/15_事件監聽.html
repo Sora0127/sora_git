@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>15事件監聽</title>
+    <script>
+      function 感謝() {
+        document.getElementById("thanks").innerHTML +=
+          "<p>感謝點擊!</p>";
+      }
+    </script>
+    <style>
+      .b-set{
+        display: flex;
+        width: 100px;
+        padding: 10px;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: rgb(165, 204, 239);
+      }
+      .b-set:hover{
+        cursor: pointer;
+        background-color: rgb(140, 145, 149);
+        color: rgb(255, 255, 255);
+      }
+      .b-set:active{
+        background-color: rgb(245, 247, 192);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="b-set" onclick="感謝();">Click me!</div>
+    <div id="thanks"></div>
+  </body>
+</html>

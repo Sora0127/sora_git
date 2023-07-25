@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01元件抓取</title>
+    <style>
+        body{
+            background-color: rgb(186, 235, 235);
+        }
+        div, p{
+            background-color: rgb(255, 255, 255);
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            border-radius:10px;
+        }
+        div:hover,p:hover{
+            background-color: rgb(112, 112, 112);
+            color: rgb(255, 255, 255);
+        }
+        div:active,p:active{
+            background-color: rgb(252, 231, 138);
+            color: rgb(23, 23, 23);
+        }
+        .Tag抓取{
+            background-color: rgb(250, 219, 190);
+        }
+        .ID抓取{
+            background-color: rgb(156, 188, 193);
+            color: rgb(255, 255, 255);
+        }
+        .class抓取{
+            background-color: rgb(237, 171, 171);
+        }
+    </style>
+</head>
+
+<body>
+    <div>div[0] 被標籤抓取，抓到</div>
+    <div>div[1] 被標籤抓取，抓到</div>
+
+    <div class="區塊">區塊[0]被queryAll</div>
+    <div class="區塊">區塊[1]被queryAll</div>
+
+    <p id="p1">p1被ID抓取</p>
+    <p id="p2">p2沒被ID抓取</p>
+    
+    
+    <p class="p_class1">p1群組[0]，被使用群組抓取，抓到</p>
+    <p class="p_class1">p1群組[1]，被使用群組抓取，抓到</p>
+    <p class="p_class2">p2群組[0]，沒被群組抓取</p>
+</body>
+<script>
+    const Tag抓取 = document.getElementsByTagName('div');
+    const ID抓取 = document.getElementById('p1');
+    const class抓取 = document.getElementsByClassName('p_class1');
+
+    for(let i=0;i<Tag抓取.length;i++){
+        if(Tag抓取[i].classList.length==0){
+            Tag抓取[i].addEventListener("click", function () {
+                顯示(Tag抓取[i]);
+            });
+            Tag抓取[i].classList.add("Tag抓取");
+        }
+    }
+    ID抓取.classList.add("ID抓取");
+    ID抓取.addEventListener("click", function () {
+        顯示(ID抓取);
+    });
+
+    for(let i=0;i<class抓取.length;i++){
+        class抓取[i].classList.add("class抓取");
+        class抓取[i].addEventListener("click", function () {
+            顯示(class抓取[i]);
+        });
+    }
+
+    function 顯示(元件) {
+        alert(元件.textContent)
+    }
+
+
+    let query_all = document.querySelectorAll('.區塊');
+
+    query_all.forEach(function (x) {
+        x.onclick = function () {
+            顯示(x);
+        }
+    }); 
+</script>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同步</title>
+    <style>
+        body{
+            background-color: rgb(191, 221, 221);
+        }
+        p{
+            /* background-color: rgb(255, 255, 255); */
+            padding: 10px;
+            width:fit-content ;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        button{
+            background-color: rgb(163, 205, 242);
+            font-weight: bold;
+            width: 200px; ;
+            font-size: 12pt;
+            padding: 5px 20px;
+            border-radius: 20px;
+            transition: 0.8s;
+        }
+        button:hover{
+            background-color: rgb(124, 124, 124);
+            border-radius: 0;
+            color: rgb(255, 255, 255);
+        }
+        button:active{
+            background-color: rgb(242, 248, 203);
+            border-radius: 0;
+            transition: 0.1s;
+            color: rgb(83, 80, 80);
+        }
+    </style>
+</head>
+<body>
+    <button>點擊我</button>
+    <div style="display: flex;flex-wrap: wrap;">
+
+    </div>
+</body>
+<script>
+    const btn = document.querySelector("button");
+    const div = document.querySelector("div");
+    btn.addEventListener("click", () => { // 回呼函式
+        // alert("你點擊了我！");
+        
+        let pElem = document.createElement("p");
+        pElem.textContent = div.children.length;
+        let r=Math.floor(Math.random()*(255-180+1))+180;
+        let g=Math.floor(Math.random()*(255-180+1))+180;
+        let b=Math.floor(Math.random()*(255-180+1))+180;
+        pElem.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+        div.appendChild(pElem);
+    });
+    btn.addEventListener("mousemove", () => { // 回呼函式
+        btn.textContent = "幹嘛!!";
+    });
+    btn.addEventListener("mouseout", () => { // 回呼函式
+        btn.textContent = "晚安，瑪卡巴卡";
+    });
+    btn.addEventListener("mousedown", () => { // 回呼函式
+        btn.textContent = "唉呦";
+    });
+    btn.addEventListener("mouseup", () => { // 回呼函式
+        btn.textContent = "幹嘛!!";
+    });
+    
+</script>
+</html>

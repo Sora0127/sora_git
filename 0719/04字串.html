@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04字串</title>
+    <script> 
+
+        // 字串宣告，串接
+        one = "晚安，";
+        two = '瑪卡巴卡';
+        joined = one + two;
+        console.log(joined);
+        response = one + "哈哈" + two;
+        console.log(response)
+
+        // 數字、字串轉型
+        let myNum = 123;
+        console.log("型態為"+typeof myNum)
+
+        let 我的字串 = myNum.toString();
+        console.log("型態為"+typeof 我的字串);
+
+        myNumber = Number(我的字串);
+        console.log("型態為"+typeof myNumber);
+
+        // 模板字串符
+        let 名字 = "林靖翔";
+        分子 = 9;
+        分母 = 10;
+        output ='我是" ' +名字 +' " 目前電量' +(分子 / 分母) * 100 +"%.";
+        //一堆+跟''或""號很麻煩
+        new_output=`我是 " ${名字} " 目前電量 ${(分子 / 分母)*100}%`; // ``包起來，變數只要用${}包起來就可以呼叫，方便許多
+        console.log(output)
+        console.log(new_output)
+        名字 = ["AA","BB","CC"];
+        for(let i=0;i<名字.length;i++){
+            console.log(`${名字[i]}想吃晚餐`)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

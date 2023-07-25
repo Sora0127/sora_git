@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10for 迴圈</title>
+    <style>
+        body{
+            background-color: rgb(200, 231, 231);
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            align-items: center;
+            height: 30rem;
+        }
+        table,td{
+            border: 1px solid #000;
+        }
+        .in-set{
+            margin: 10px;
+            border-radius: 20px;
+            padding: 2px 20px 2px 10px;
+        }
+        .顯示框{
+            display: none;
+            width: 200px;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 1px 1px 1px 1px rgba(97, 97, 97,0.5);
+            background-color: rgb(255, 255, 255);
+        }
+        .顯示框.顯示{
+            display: block;
+        }
+        .b-set{
+            background-color: rgb(139, 165, 169);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 10pt;
+            padding: 5px 10px;
+            width: 60px;
+            border-radius: 20px;
+            position: relative;
+        }
+        .b-set:hover{
+            background-color: rgb(92, 95, 95);
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; width: 200px; align-items: center; background-color: rgba(255, 255, 255,0.4); padding: 20px; border-radius: 20px;">
+        <label for="search">輸入要查詢的名字: </label>
+        <input class="in-set" id="search" type="text" />
+        <button class="b-set">查詢</button>
+        <p class="顯示框"></p>
+    </div>
+
+</body>
+<script>
+    var contacts = [
+        "林靖翔:U1033025",
+        "洪嘉辰:U1033041",
+        "黃翊雯:U1033011",
+        "顧傑華:U1033039",
+        "邱士宇:U1033043",
+        "黃聖瑋:U1033053"
+    ];
+    var para = document.querySelector(".顯示框");
+    var input = document.querySelector("input");
+    var btn = document.querySelector("button");
+
+
+    input.addEventListener("input",function(){
+        para.classList.remove("顯示");
+    });
+
+
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            btn.click();
+        }
+    });
+
+
+
+    btn.addEventListener("click", function () {
+        var searchName = input.value;
+        input.value = "";
+        
+        for (var i = 0; i < contacts.length; i++) {
+            var splitContact = contacts[i].split(":");
+            if (splitContact[0] === searchName) {
+                para.textContent = splitContact[0] + "對應學號 " + splitContact[1] + ".";
+                break;
+            } else {
+                para.textContent = "查無此人.";
+            }
+        }
+        para.classList.add("顯示");
+    });
+
+</script>
+</html>
